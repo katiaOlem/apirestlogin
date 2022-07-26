@@ -2,12 +2,12 @@ function createUser(){
 
     let email = document.getElementById("email");
     let password = document.getElementById("password")
-    let passwordC = document.getElementById("passwordC")
+    let passwordR = document.getElementById("passwordR")
     let name = document.getElementById("name")
 
     var request = new XMLHttpRequest();
-    if(password.value !== passwordC.value){
-        alert("Contraseñas no Coinciden")
+    if(password.value !== passwordR.value){
+        alert("La contraseña no coincide, por favor introduzca de nuevo")
     };
     request.open("POST","https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us54.gitpod.io/user/?email="+email.value+"&password="+password.value+"&name="+name.value,true);
     request.setRequestHeader('Accept', 'application/json');
@@ -22,7 +22,7 @@ function createUser(){
 
         else{
             alert(json.detail);
-            window.location.replace("/templates/bienvenida.html");
+            
         }
     };
     request.send();

@@ -13,9 +13,9 @@ class index:
     def GET(self):
         return render.index()
 
-class getclientes:
+class login:
     def GET(self):
-        return render.get_clientes()
+        return render.login()
 
            
 if __name__ == "__main__":
