@@ -3,7 +3,7 @@ getInformation(sessionStorage.getItem("token"));
 function getInformation(token){
 
     var request = new XMLHttpRequest();
-    request.open("GET","https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us54.gitpod.io/user/",true);
+    request.open("GET","http://0.0.0.0:8080/user/",true);
     request.setRequestHeader('Authorization', 'Bearer '+token);
     request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('accept', 'application/json');

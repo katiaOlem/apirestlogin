@@ -11,49 +11,29 @@ function login() {
     console.log(payload);
 
     var request = new XMLHttpRequest();
-    request.open('GET','https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us54.gitpod.io/user/validate/',true);
-    request.setRequestHeader("Authorization", "Basic " + btoa(email.value+":"+password.value));
+    request.open('POST','https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us59.gitpod.io/user/token',true);
     request.setRequestHeader('Content-Type', 'application/json');
     request.setRequestHeader('accept', 'application/json');
 
+    
+
     request.onload = function(){
+    try{
         const status = request.status
         json = JSON.parse(request.responseText);
 
         if (status == 202) {
-            getInformation(json.token);
-            
-        }
-
-        else{
-            alert(json.detail);
-        }
+            const response = request.responseText;
+            const json = JSON.parse(response);
+            console.log(json);   
+            sessionStorage.setItem("token", json.token);
+            window.location.replace("./bienvenida.html");           
+        }}
+        catch (error) {
+            console.log(error);
+            alert(error);
+                  }
+    
     };
-    request.send();
+    request.send(JSON.stringify(payload));
 };
-
-function getInformation(token){
-
-    var request = new XMLHttpRequest();
-    request.open("GET","https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us54.gitpod.io/user/",true);
-    request.setRequestHeader('Authorization', 'Bearer '+token);
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.setRequestHeader('accept', 'application/json');
-
-    request.onload = function(){
-
-        const status = request.status
-
-        if (status == 202) {
-            json = JSON.parse(request.responseText);
-            sessionStorage.setItem("token",token);
-           
-            window.location.replace("/templates/bienvenida.html");
-        }
-
-        else{
-            alert(json.detail);
-        }
-    }
-    request.send();
-}

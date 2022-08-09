@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <header>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Lista de Clientes</title>
+
+<style>
+
+</style>
+    </header>
+    <body>
+        <div class="navbar">
+            <h2 style="color:white;">Lista de Clientes</h2>
+        </div>
+        
+        <div class="container">
+            <div class="jumbotron">
+                <br>
+                <a href="/templates/post_cliente.html" class="btn btn-info btn-lg">
+                    <span class="glyphicon glyphicon-user"></span> Ingresa un nuevo cliente
+                </a>
+                <br>
+                <br>
+                <table class="w3-table-all" id="tabla_clientes">
+                    
+                </table>
+            </div>
+        </div>
+        <script type="text/javascript" src="static/js/get_clientes.js"></script>
+        <script async>
+            document.body.onload = getClientes();
+        </script>
+    </body>
+</html>
