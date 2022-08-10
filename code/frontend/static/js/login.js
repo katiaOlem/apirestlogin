@@ -9,14 +9,10 @@ function login() {
     console.log(email.value);
     console.log(password.value );
     console.log(payload);
-
     var request = new XMLHttpRequest();
-    request.open('POST','https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us59.gitpod.io/user/token',true);
+    request.open('POST',"https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/user/token",true);
     request.setRequestHeader('Content-Type', 'application/json');
-    request.setRequestHeader('accept', 'application/json');
-
-    
-
+    request.setRequestHeader('accept', 'application/json');  
     request.onload = function(){
     try{
         const status = request.status

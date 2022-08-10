@@ -16,7 +16,7 @@ function PostCliente(){
 
     
     var request = new XMLHttpRequest(); 
-    request.open('POST', "http://0.0.0.0:8080/clientes/",true);
+    request.open('POST', "https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/clientes/",true);
     request.setRequestHeader("accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + btoa(token));
     request.setRequestHeader("Content-Type", "application/json");

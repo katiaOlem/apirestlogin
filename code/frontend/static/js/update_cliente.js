@@ -17,7 +17,7 @@ function PutCliente(){
     console.log(payload);
     
     var request = new XMLHttpRequest();
-    request.open('PUT', "http://0.0.0.0:8080/clientes/",true);
+    request.open('PUT','https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/clientes/',true);
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + btoa(token));
     request.setRequestHeader("content-type", "application/json");
@@ -38,14 +38,6 @@ function PutCliente(){
             console.log("Response: " + response);
             console.log("JSON: " + json);
             console.log("Status: " + status);
-
-            Swal.fire({
-                title: json.message,
-                text: "Regresar a la lista de clientes ",
-                type: "info"
-            }).then(function() {
-                window.location = "/templates/get_clientes.html";
-            });
         }
     };
     request.send(JSON.stringify(payload));

@@ -2,7 +2,7 @@ function getClientes() {
     
     const token = sessionStorage.getItem('token');
     var request = new XMLHttpRequest();
-    request.open('GET', "http://0.0.0.0:8080/clientes/");
+    request.open('GET', "https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/clientes/");
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + btoa(token));
     request.setRequestHeader("content-type", "application/json");
@@ -54,12 +54,12 @@ function getClientes() {
                     
                 
                     detalle.innerHTML       = "<a href='/templates/get_cliente.html?"+id+"'> Detalles </a>";
-                    actualizar.innerHTML    = "<a href='/templates/update_clientes.html?"+id+"'> Actualizar </a>";
+                    actualizar.innerHTML    = "<a href='/templates/update_cliente.html?"+id+"'> Actualizar </a>";
                     borrar.innerHTML        = "<a href='/templates/delete_clientes.html?"+id+"'> Borrar </a>";
                     id_cliente.innerHTML    = id;
                     nombre.innerHTML        = parseo_json[key][id].Nombre;
                     email.innerHTML         = parseo_json[key][id].Email;
-
+                    direccion.innerHTML =parseo_json[key][id].Direccion;
                     tr.appendChild(detalle);
                     tr.appendChild(actualizar);
                     tr.appendChild(borrar);

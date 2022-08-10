@@ -6,7 +6,7 @@ function DeleteCliente(){
     console.log("id_cliente: " + id_cliente);
     
     var request = new XMLHttpRequest();
-    request.open('DELETE', "http://0.0.0.0:8080/clientes/"+ id_cliente,true);
+    request.open('DELETE', "https://8080-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/clientes/"+ id_cliente,true);
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + btoa(token));
     request.setRequestHeader("content-type", "application/json");
@@ -25,7 +25,7 @@ function DeleteCliente(){
         else if (request.status == 202){
 
             console.log("Response: " + response);
-            //console.log("JSON: " + json);
+            console.log("JSON: " + json);
             console.log("Status: " + status);
 
             Swal.fire({

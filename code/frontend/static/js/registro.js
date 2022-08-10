@@ -9,7 +9,7 @@ function createUser(){
     if(password.value !== passwordR.value){
         alert("La contraseña no coincide, por favor introduzca de nuevo")
     };
-    request.open("POST","https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us54.gitpod.io/user/?email="+email.value+"&password="+password.value+"&name="+name.value,true);
+    request.open("POST","https://8080-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/user/?email="+email.value+"&password="+password.value+"&name="+name.value,true);
     request.setRequestHeader('Accept', 'application/json');
 
     request.onload = function(){
