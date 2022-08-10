@@ -29,10 +29,10 @@ class ClienteID (BaseModel):
 
 #urls
 origins = [
-    "https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/",
-    "https://8080-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/",
+    "https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us59.gitpod.io/",
+    "https://8080-katiaolem-apirestlogin-hb1jsfk1n87.ws-us59.gitpod.io/",
     "*",              
-]
+    ]
 
 app.add_middleware(
     CORSMiddleware,
@@ -101,7 +101,8 @@ async def get_user(credentials: HTTPAuthorizationCredentials =  Depends(security
         user=auth.get_account_info(credentials.credentials)
         uid= user['users'][0]['localId']       
         db= firebase.database()
-        user_data=db.child('users').child(uid).get().val()
+        user_data=db.child('users').child(uid).get()
+        print (user)
         response={
             "user_data":user_data 
             }
@@ -222,21 +223,22 @@ async def put_clientes(cliente:ClienteID, credentials: HTTPAuthorizationCredenti
         )
     
 #delete cliente
-@app.delete(
-    "/cliente/", 
-    status_code=status.HTTP_202_ACCEPTED,
-    summary="Eliminar un cliente",
-    description="Eliminar un cliente",
-    tags=["Cliente"]
-    )
-async def delete_cliente(id_cliente: str, credentials: HTTPAuthorizationCredentials=Depends(securityBearer)):
+@app.delete("/clientes/{id_cliente}", response_model=Respuesta,status_code=status.HTTP_202_ACCEPTED,
+    summary = "Elimina un cliente",
+    description = "Elimina un cliente",
+    tags = ["Cliente"]
+)
+async def delete_clientes(id_cliente: str, credentials: HTTPAuthorizationCredentials = Depends(securityBearer)):
     try:
-        auth=firebase.auth()
-        db= firebase.database()       
-        db.child('cliente').child(id_cliente).remove()
-        response={
-            "message":"Eliminacion exitosa" 
-            }
+        db = firebase.auth()       
+        db = firebase.database()
+        id = id_cliente
+        print(id)
+        db.child("clientes").child(id).remove()
+        response = {"message":"Cliente eliminado correctamente"}
         return response
-    except Exception as error:       
-        return(f"Error_insert:{error}")
+    except Exception as error:
+        print(f"Error: {error}")
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED           
+        )

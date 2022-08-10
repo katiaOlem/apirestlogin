@@ -2,7 +2,7 @@ function getClientes() {
     
     const token = sessionStorage.getItem('token');
     var request = new XMLHttpRequest();
-    request.open('GET', "https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us60.gitpod.io/clientes/");
+    request.open('GET', "https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us59.gitpod.io/clientes/");
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + btoa(token));
     request.setRequestHeader("content-type", "application/json");
@@ -13,6 +13,7 @@ function getClientes() {
 
     tblHead.innerHTML = `
         <tr>
+
             <th>Detalle</th>
             <th>Actualizar</th>
             <th>Borrar</th>
@@ -52,9 +53,9 @@ function getClientes() {
                     
                     
                 
-                    detalle.innerHTML       = "<a href='/templates/get_cliente.html?"+id+"'> Detalles </a>";
-                    actualizar.innerHTML    = "<a href='/templates/update_cliente.html?"+id+"'> Actualizar </a>";
-                    borrar.innerHTML        = "<a href='/templates/delete_clientes.html?"+id+"'> Borrar </a>";
+                    detalle.innerHTML       = "<a href='./get_cliente.html?"+id+"'> Detalles </a>";
+                    actualizar.innerHTML    = "<a href='./update_cliente.html?"+id+"'> Actualizar </a>";
+                    borrar.innerHTML        = "<a href='./delete_clientes.html?"+id+"'> Borrar </a>";
                     id_cliente.innerHTML    = id;
                     nombre.innerHTML        = parseo_json[key][id].Nombre;
                     email.innerHTML         = parseo_json[key][id].Email;

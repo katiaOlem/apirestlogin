@@ -1,23 +1,25 @@
 <!DOCTYPE html>
-<html lang="es">
-    <header>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Eliminar Cliente</title>
-        <style>
-       
-        </style>
-</header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+   <!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+          background-image: url('https://farm4.staticflickr.com/3898/14755140467_2aa2bddca5.jpg');
+          height: 300px;
+          "></div>
+    <!-- Background image -->
+  
 
-    <body>
-        <div class="navbar">
-            <br>
-            <h2 style="color:white;">Eliminarrrrrrr Cliente</h2>
-        </div>
-        
+    <div class="col-lg-10 mb-10 mb-lg-0" style="z-index: 15">
+      <h2 class="fw-bold mb-5" class="row d-flex justify-content-center" style="color:rgb(15, 6, 97);"> Eliminar Cliente </h2>
         <div class="container mt-3">
-            <div class="jumbotron">
-                <h1>Insertar Cliente</h1>
+         <div class="jumbotron">
                 <form id="form_cliente" action="">
 
                     <label for="direccion">Direccion:</label>
@@ -33,13 +35,13 @@
                     <input type="email"  readonly=»readonly» id="email" name="email" class="form-control form-control-lg" placeholder="Email"/>
                     <br>
                     <br>
-                    <input type="button" value="Eliminar" onclick="DeleteCliente()" class="btn btn-danger btn-block btn-lg">
+                    <input type="button" value="Eliminar" onclick="DeleteCliente()" class="btn btn-dark btn-block btn-lg">
                 </form>
             </div>
         </div>
 
-        <script type="text/javascript" src="../static/js/delete_cliente.js"></script>
-        <script type="text/javascript" src="../static/js/get_cliente.js"></script>
+        <script type="text/javascript" src="./delete_cliente.js"></script>
+        <script type="text/javascript" src="./get_cliente.js"></script>
         <script async>
             document.body.onload = getCliente();
         </script>

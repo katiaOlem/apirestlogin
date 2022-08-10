@@ -6,7 +6,7 @@ function DeleteCliente(){
     console.log("id_cliente: " + id_cliente);
     
     var request = new XMLHttpRequest();
-    request.open('DELETE', "https://8080-katiaolem-apirestlogin-hb1jsfk1n87.ws-us59.gitpod.io/clientes/"+ id_cliente,true);
+    request.open('DELETE', "https://8000-katiaolem-apirestlogin-hb1jsfk1n87.ws-us59.gitpod.io/clientes/"+ id_cliente,true);
     request.setRequestHeader("Accept", "application/json");
     request.setRequestHeader("Authorization", "Bearer " + btoa(token));
     request.setRequestHeader("content-type", "application/json");
@@ -25,15 +25,15 @@ function DeleteCliente(){
         else if (request.status == 202){
 
             console.log("Response: " + response);
-            console.log("JSON: " + json);
+            //console.log("JSON: " + json);
             console.log("Status: " + status);
 
             Swal.fire({
                 title: json.message,
-                text: "Volver a la lista de clientes ",
+                text: "Regresar a la lista de clientes ",
                 type: "success"
             }).then(function() {
-                window.location = "/templates/get_clientes.html";
+                window.location = "./get_clientes.html";
             });
         }
     };

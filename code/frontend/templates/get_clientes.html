@@ -1,34 +1,32 @@
 <!DOCTYPE html>
-<html lang="es">
-    <header>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Lista de Clientes</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+   <!-- Section: Design Block -->
+<section class="text-center">
+    <!-- Background image -->
+    <div class="p-5 bg-image" style="
+          background-image: url('https://farm4.staticflickr.com/3898/14755140467_2aa2bddca5.jpg');
+          height: 300px;
+          "></div>
+    <!-- Background image -->
+  
 
-<style>
 
-</style>
-    </header>
-    <body>
-        <div class="navbar">
-            <h2 style="color:white;">Lista de Clientes</h2>
-        </div>
-        
-        <div class="container">
-            <div class="jumbotron">
-                <br>
-                <a href="/templates/post_cliente.html" class="btn btn-info btn-lg">
-                    <span class="glyphicon glyphicon-user"></span> Ingresa un nuevo cliente
-                </a>
-                <br>
-                <br>
-                <table class="w3-table-all" id="tabla_clientes">
-                    
-                </table>
-            </div>
-        </div>
-        <script type="text/javascript" src="../static/js/get_clientes.js"></script>
-        <script async>
+    <div class="col-lg-10 mb-10 mb-lg-0" style="z-index: 15">
+      <h2 class="fw-bold mb-5" class="row d-flex justify-content-center" style="color:rgb(15, 6, 97);"> Tabla </h2>
+        <div class="container mt-3">
+         <div class="jumbotron">
+    <table class="table table-responsive" id="tabla_clientes"></table>
+    <br><br>
+    <a href="./post_cliente.html" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-user"></span> + Cliente</a>
+    <script type="text/javascript" src="./get_clientes.js"></script>
+    <script async>
             document.body.onload = getClientes();
         </script>
     </body>

@@ -23,7 +23,7 @@ function login() {
             const json = JSON.parse(response);
             console.log(json);   
             sessionStorage.setItem("token", json.token);
-            window.location.replace("/templates/bienvenida.html");           
+            window.location.replace("./bienvenida.html");           
         }}
         catch (error) {
             console.log(error);
